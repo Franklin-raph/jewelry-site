@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Home from './pages/Home/Home'
-import Navbar from './components/navbar/Navbar'
 import SignInSignUp from './pages/authentication/sign-in-sign-up/SignInSignUp'
 import Dashboard from './pages/dashboard/Dashboard'
 import AllProducts from './pages/allProducts/AllProducts'
@@ -14,6 +12,7 @@ import AboutUs from './pages/aboutUs/AboutUs'
 import ContactUs from './pages/contactUs/ContactUs'
 import audio from "./assets/HAPPY BIRTHDAY TO YOU The Happy Birthday Song.mp3"
 import birthdayGif from "./assets/images/giphy.gif"
+import Home from './pages/homePage/Home'
 
 function App() {
 
