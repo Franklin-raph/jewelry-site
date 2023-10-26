@@ -33,7 +33,7 @@ function App() {
       <BrowserRouter>
       {birthdayModal && 
         <div className='birthdayModalBg'>
-          <i className='ri-close-line text-white text-2xl fixed top-10 right-[30%]' onClick={() => handleBirthdayModalClose()}></i>
+          <i className='ri-close-line text-white text-2xl fixed top-10 right-[30%] cursor-pointer' onClick={() => handleBirthdayModalClose()}></i>
           <img src={birthdayGif} alt="" className='birthdayGif'/>
         </div>
       }
