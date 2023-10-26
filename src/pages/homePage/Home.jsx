@@ -5,11 +5,6 @@ import necklace from "../../assets/images/necklace.jpg"
 import watch from "../../assets/images/watch.jfif"
 import bangle from "../../assets/images/bangle.jfif"
 import ear_ring from "../../assets/images/ear-ring.webp"
-import ear_ring1 from "../../assets/images/ear-ring1.webp"
-import emarald from "../../assets/images/emarald.jfif"
-import image1 from "../../assets/images/blog-item-01.png"
-import image2 from "../../assets/images/blog-item-02.png"
-import image3 from "../../assets/images/blog-item-03.png"
 import OwlCarousel from 'react-owl-carousel';  
 import 'owl.carousel/dist/assets/owl.carousel.css';  
 import 'owl.carousel/dist/assets/owl.theme.default.css';

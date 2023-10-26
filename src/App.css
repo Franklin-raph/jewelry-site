@@ -216,20 +216,20 @@ main{
   margin-bottom: 5rem;
 }
 
-main img{
+main img, .about img{
   width: 50%;
 }
 
-main > div{
+main > div, .about > div{
   margin: 50px;
   width: 35%;
 }
 
-main div h1{
+main div h1, .about div h1{
   font-size: 3.5rem;
 }
 
-main div p{
+main div p, .about div p{
   margin: 1.2rem 0;
   line-height: 1.5;
   font-size: 18px;
@@ -430,11 +430,11 @@ table th{
 }
 
 @media screen and (max-width:1024px) {
-  main div h1{
+  main div h1, .about div h1{
       font-size: 3rem;
   }
 
-  main div p{
+  main div p, .about div p{
       font-size: 16px;
   }
 
@@ -444,11 +444,11 @@ table th{
 }
 
 @media screen and (max-width:992px) {
-  main div h1{
+  main div h1, .about div h1{
       font-size: 2.3rem;
   }
 
-  main div p{
+  main div p, .about div p{
       font-size: 14px;
   }
   
@@ -467,20 +467,20 @@ table th{
 }
 
 @media screen and (max-width:768px) {
-  main{
+  main, .about{
       flex-direction: column-reverse;
   }
 
-  main img{
+  main img, .about img{
       width: 100%;
   }
 
-  main > div{
+  main > div, .about > div{
       width: 80%;
       text-align: center;
   }
   
-  main div p{
+  main div p, .about div p{
       font-size: 16px;
   }
 
@@ -511,11 +511,11 @@ table th{
 
 @media screen and (max-width:576px) {
   
-  main > div{
+  main > div, .about div{
       width: 90%;
   }
 
-  main div h1{
+  main div h1, .about div h1{
       font-size: 2rem;
   }
 
