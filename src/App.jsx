@@ -33,20 +33,20 @@ function App() {
       <BrowserRouter>
       {birthdayModal && 
         <div className='birthdayModalBg'>
-          <i className='ri-close-line text-white text-2xl fixed top-10 right-[30%] cursor-pointer' onClick={() => handleBirthdayModalClose()}></i>
+          <i className='ri-close-line text-white text-2xl fixed top-[20%] md:top-[3%] right-[20%] cursor-pointer' onClick={() => handleBirthdayModalClose()}></i>
           <img src={birthdayGif} alt="" className='birthdayGif'/>
         </div>
       }
         <Routes>
           <Route path="/" element={<Home baseUrl={baseUrl} />}/>
           <Route path="/about-us" element={<AboutUs baseUrl={baseUrl} />}/>
-          <Route path="/contact-us" element={<ContactUs baseUrl={baseUrl} />}/>
-          <Route path="/myorder/:order_id" element={<OrderAndShippingInfo baseUrl={baseUrl} />}/>
-          <Route path="/order-details/:order_id" element={<OrderInfo baseUrl={baseUrl} />}/>
-          <Route path="/sign-in-sign-up" element={<SignInSignUp baseUrl={baseUrl}/>}/>
           <Route path="/dashboard" element={<Dashboard baseUrl={baseUrl}/>}/>
+          <Route path="/contact-us" element={<ContactUs baseUrl={baseUrl} />}/>
           <Route path="/allProducts" element={<AllProducts baseUrl={baseUrl}/>}/>
+          <Route path="/sign-in-sign-up" element={<SignInSignUp baseUrl={baseUrl}/>}/>
           <Route path="/cart-item-details" element={<CartItemDetails baseUrl={baseUrl}/>}/>
+          <Route path="/order-details/:order_id" element={<OrderInfo baseUrl={baseUrl} />}/>
+          <Route path="/myorder/:order_id" element={<OrderAndShippingInfo baseUrl={baseUrl} />}/>
         </Routes>
         <Footer />
       </BrowserRouter>
