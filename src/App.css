@@ -1,0 +1,564 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Rubik', sans-serif;
+}
+
+html,body{
+  width: 100%;
+  scroll-behavior: smooth;
+}
+
+.container img{
+  width: 20%;
+}
+
+a{
+  color: #000000;
+}
+
+button{
+  all: unset;
+  cursor: pointer;
+}
+
+.container{
+  width: 470px;
+  height: 100vh;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.formContainer{
+  background-color: #fff;
+  box-shadow: 0 0 10px #b0b0b0;
+  padding: 3rem;
+}
+
+#form1, #form2{
+  position: absolute;
+  width: 450px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: auto;
+}
+
+#form1 h4, #form2 h4{
+  font-weight: 400;
+  font-size: 22px;
+  margin: 20px 0;
+}
+
+input{
+  border: none;
+  border-bottom: 1px solid #333;
+  outline: none;
+  padding-bottom: 5px;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 1.7rem;
+}
+
+#form1 .formContainer p{
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 5px;
+  color: #404040;
+  font-size: 14px;
+}
+
+#form1 a{
+  display: block;
+  font-size: 14px;
+}
+
+#form1 .buttons{
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 2rem;
+}
+
+#form1 .buttons button{
+  padding: 7px 30px;
+}
+
+#form1 .login-btn{
+  background-color: #000000;
+  color: #fff;
+}
+
+#form1 .buttons button:nth-of-type(1):hover{
+  background-color: #acacac;
+}
+
+#form2 .formContainer{
+  box-shadow: none;
+}
+
+#form2{
+  margin-top: 3rem;
+  left: 150%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .5s;
+  box-shadow: 0 0 10px #b0b0b0;
+  background-color: #fff;
+  padding-bottom: 4rem;
+}
+
+#form2 .sign-up-btn{
+  margin-top: 2rem;
+  background-color: #000000;
+  padding: 7px 30px;
+  position: absolute;
+  right: 50px;
+  color: #fff;
+}
+
+#form2 p, #form3 p{
+  font-size: 14px;
+}
+
+#form1 {
+  transition: .5s;
+  margin-top: 3rem;
+}
+
+#form1 .error-text, #form2 .error-text{
+  margin-bottom: 0;
+  padding-bottom: 5px;
+  color: red;
+  display: block;
+  font-size: 13px;
+}
+
+.index-nav{
+  position: fixed;
+  width: 100%;
+}
+
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #000;
+  padding:1rem 3rem;
+}
+
+nav .nav-links{
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+nav .nav-links .index-sign-in{
+  border: 1px solid #fff;
+  padding: 5px 16px;
+}
+
+nav .user-icon{
+  cursor: pointer;
+  border: 1px solid #898989;
+  border-radius: 50px;
+  padding: 7px 5px;
+}
+
+nav .ri-user-3-line{
+  font-size: 18px;
+}
+
+nav .welcome{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+nav a, nav i, nav div{
+  color: #fff;
+  text-decoration: none;
+}
+
+nav .user-nav-dropdown{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  position: absolute;
+  background-color: #000000;
+  right: 50px;
+  padding: 5px 12px;
+  border: 1px solid #fff;
+  cursor: pointer;
+  top: 60px;
+  z-index: 99;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.show-nav{
+  display: flex !important;
+}
+
+nav img, footer img{
+  width: 30px;
+  filter: invert(1);
+}
+
+main{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5rem;
+}
+
+main img{
+  width: 50%;
+}
+
+main > div{
+  margin: 50px;
+  width: 35%;
+}
+
+main div h1{
+  font-size: 3.5rem;
+}
+
+main div p{
+  margin: 1.2rem 0;
+  line-height: 1.5;
+  font-size: 18px;
+}
+
+main a{
+  text-decoration: none;
+}
+
+main div div a:nth-child(1), main button{
+  background-color: rgb(0, 0, 0);
+  padding: 10px 20px;
+  color: #fff;
+  margin-right: 10px;
+}
+
+main div div a:nth-child(2){
+  padding: 9px 20px;
+  border: 1px solid #000;
+}
+
+.gallery-image{
+  margin: 3.5rem 0;
+}
+
+.gallery-image .header{
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.gallery-image .header h3{
+  font-size: 2rem;
+}
+
+.gallery-image img{
+  margin: 0 auto;
+  width: 30% !important;
+}
+
+.featured-images{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 3rem;
+  padding: 0 3rem;
+}
+
+.featured-images img{
+  width: 50% !important;
+}
+
+.owl-dots{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  margin-top: 1.8rem;
+}
+
+.owl-dot{
+  background-color: #000;
+  padding: 5px;
+  border-radius: 50px;
+  border: 1px solid #000;
+}
+
+.owl-dot.active{
+  border: 1px solid #000;
+  background-color: #fff;
+}
+
+.owl-nav{
+  position: absolute;
+  top: -50px;
+  right: 0;
+  display: flex;
+  gap: 10px;
+  font-size: 30px;
+}
+
+.owl-nav span{
+  background-color: #cfcfcf;
+  padding: 0 15px;
+}
+
+footer{
+  background-color: #000;
+  color: #fff;
+  padding: .8rem 1.2rem;
+  text-align: center;
+}
+
+.dashboardStats{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.dashboardStats > div{
+  width: 100%;
+  border: 1px solid rgb(218, 218, 218);
+  padding: 2rem 1rem;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboardStats > div p{
+  margin-bottom: 9px;
+}
+
+.dashboardStats > div i{
+  font-size: 3rem;
+  color: #c1c1c1;
+}
+
+.featuredItemImg{
+  transition: 0.5s;
+}
+
+.featuredItem:hover .featuredItemImg{
+  scale: 1.5;
+  transition: 0.5s;
+}
+
+.top-rated-latest img{
+  width: 100% !important;
+}
+
+.successModalBg,
+.errorModalBg,
+.birthdayModalBg {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.891);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+
+.birthdayModalBg button{
+  color: #fff;
+}
+
+.successModalBg,
+.errorModalBg {
+  z-index: 100;
+}
+
+.successModal,
+.failureModal {
+  background-color: #fff;
+  color: #000;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 40%;
+  text-align: center;
+  margin: auto;
+  font-size: 18px;
+}
+
+.loader-bg1{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 101;
+}
+
+.loader-bg2{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 102;
+}
+
+.loader-bg1 i{
+  color: #fff;
+  font-size: 30px;
+}
+
+table th{
+  border-bottom: 1px solid #d3d3d3;
+}
+
+@media screen and (max-width:1024px) {
+  main div h1{
+      font-size: 3rem;
+  }
+
+  main div p{
+      font-size: 16px;
+  }
+
+  .gallery-image img{
+      width: 45% !important;
+  }
+}
+
+@media screen and (max-width:992px) {
+  main div h1{
+      font-size: 2.3rem;
+  }
+
+  main div p{
+      font-size: 14px;
+  }
+  
+  .dashboardStats{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .featured-images{
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .successModal, .failureModal{
+    width: 60%;
+  }
+}
+
+@media screen and (max-width:768px) {
+  main{
+      flex-direction: column-reverse;
+  }
+
+  main img{
+      width: 100%;
+  }
+
+  main > div{
+      width: 80%;
+      text-align: center;
+  }
+  
+  main div p{
+      font-size: 16px;
+  }
+
+  footer{
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #mobileSpace{
+    margin-bottom: 5rem;
+  }
+
+  footer{
+    font-size: 14px;
+  }
+
+  footer img{
+    display: none;
+  }
+
+  .birthdayGif{
+    width: 50%;
+  }
+}
+
+@media screen and (max-width:576px) {
+  
+  main > div{
+      width: 90%;
+  }
+
+  main div h1{
+      font-size: 2rem;
+  }
+
+  .featured-images{
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1.2rem;
+    gap: 1.5rem;
+  }
+    
+  .successModal, .failureModal{
+    width: 80%;
+  }
+
+  .successModalBg, .failureModalBg{
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+
+  .container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 400px;
+  }
+
+  #form1, #form2{
+      width:350px
+  }
+
+  nav{
+      padding: 1rem;
+  }
+  
+  .gallery-image img{
+      width: 55% !important;
+  }
+      
+  .dashboardStats{
+      display: grid;
+      grid-template-columns: 1fr;
+      padding: 1rem;
+  }
+}
