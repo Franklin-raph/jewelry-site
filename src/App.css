@@ -225,8 +225,12 @@ main > div, .about > div{
   width: 35%;
 }
 
-main div h1, .about div h1{
+main div h1{
   font-size: 3.5rem;
+}
+
+.about div h1{
+  font-size: 2.25rem;
 }
 
 main div p, .about div p{
@@ -430,8 +434,12 @@ table th{
 }
 
 @media screen and (max-width:1024px) {
-  main div h1, .about div h1{
+  main div h1{
       font-size: 3rem;
+  }
+
+  .about div h1{
+    font-size: 2rem;
   }
 
   main div p, .about div p{
@@ -444,8 +452,12 @@ table th{
 }
 
 @media screen and (max-width:992px) {
-  main div h1, .about div h1{
+  main div h1{
       font-size: 2.3rem;
+  }
+
+  .about div h1{
+    font-size: 1.8rem
   }
 
   main div p, .about div p{
@@ -515,8 +527,12 @@ table th{
       width: 90%;
   }
 
-  main div h1, .about div h1{
+  main div h1{
       font-size: 2rem;
+  }
+
+  .about div h1{
+    font-size: 1.5rem
   }
 
   .featured-images{

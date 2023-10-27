@@ -31,8 +31,9 @@ const Navbar = () => {
   return (
     <div>
         <nav className="index-nav z-10">
-            <Link to="/" className='cursor-pointer'>
+            <Link to="/" className='cursor-pointer flex flex-col items-center justify-center'>
                 <img src={Logo} alt="" />
+                <p>Kraftea</p>
             </Link>
             {/* <button onClick={() => playAudio()} className='text-white'>click</button> */}
             {/* {user && <p className='text-white'>Welcome, <span className='font-bold'>{user}</span> </p> } */}
