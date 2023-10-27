@@ -153,7 +153,7 @@ const Home = ({baseUrl}) => {
         <Navbar cartTotals={cartTotals}/>
         <main>
             <div>
-                <h1>Kraft designs</h1>
+                <h1>Kraftea designs</h1>
                 <p>Your home of finest selections of precious, simple, elegant pieces of jewelry.</p>
                 {user ? 
                     <button onClick={() => navigate("/dashboard")}>Dashboard</button>

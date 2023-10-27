@@ -11,6 +11,7 @@ import OrderInfo from './pages/orderInfo/OrderInfo'
 import AboutUs from './pages/aboutUs/AboutUs'
 import ContactUs from './pages/contactUs/ContactUs'
 import audio from "./assets/HAPPY BIRTHDAY TO YOU The Happy Birthday Song.mp3"
+import video from "./assets/WhatsApp Video 2023-10-27 at 10.34.44 AM.mp4"
 import birthdayGif from "./assets/images/giphy.gif"
 import Home from './pages/homePage/Home'
 
@@ -18,10 +19,18 @@ function App() {
 
   const baseUrl = 'https://krafteabe.pythonanywhere.com/api/v1'
   const [birthdayModal, setBirthdayModal] = useState(true)
+  const [birthdayModalVideo, setBirthdayModalVideo] = useState(false)
 
   function handleBirthdayModalClose(){
-    new Audio(audio).play();
+    new 
     setBirthdayModal(false)
+    setBirthdayModalVideo(true)
+  }
+  
+  function handleBirthdayModalVideoClose(){
+    new Audio(audio).play();
+    // new
+    setBirthdayModalVideo(false)
   }
 
   useEffect(() => {
@@ -35,6 +44,12 @@ function App() {
         <div className='birthdayModalBg'>
           <i className='ri-close-line text-white text-2xl fixed top-[20%] md:top-[3%] right-[20%] cursor-pointer' onClick={() => handleBirthdayModalClose()}></i>
           <img src={birthdayGif} alt="" className='birthdayGif'/>
+        </div>
+      }
+      {birthdayModalVideo && 
+        <div className='birthdayModalBg'>
+          <i className='ri-close-line text-white text-2xl fixed top-[20%] md:top-[3%] right-[20%] cursor-pointer' onClick={() => handleBirthdayModalVideoClose()}></i>
+          <video src={video} width="200" height="150" controls></video>
         </div>
       }
         <Routes>

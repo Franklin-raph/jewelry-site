@@ -140,7 +140,7 @@ const CartItemDetails = ({baseUrl}) => {
                   ></i>
                   {/* <i class="ri-close-circle-line text-red-500 "></i> */}
                   <i class="ri-hand-coin-line text-6xl text-gray-500"></i>
-                  <p style={{ color: "black" }}>Ready to unlock amazing savings and shop like a pro? Create your account now and join the savings party at kraft</p>
+                  <p style={{ color: "black" }}>Ready to unlock amazing savings and shop like a pro? Create your account now and join the savings party at Kraftea</p>
                 </div>
               </div>
             }

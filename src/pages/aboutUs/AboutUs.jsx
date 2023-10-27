@@ -8,7 +8,7 @@ const AboutUs = () => {
         <Navbar />
         <section className='flex items-center justify-between about'>
             <div className='ml-[3rem] py-[8rem]'>
-                <h1 className='font-bold text-3xl mb-3'>About Kraft designs</h1>
+                <h1 className='font-bold text-3xl mb-3'>About Kraftea designs</h1>
                 <p>
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos obcaecati voluptate dicta alias maxime beatae iusto vero incidunt hic cum laudantium, doloribus, praesentium, esse quae doloremque et dolorum exercitationem officia.
                 </p>
