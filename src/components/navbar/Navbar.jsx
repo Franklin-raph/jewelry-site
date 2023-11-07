@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Logo from "../../assets/images/logo.png"
+import Logo from "../../assets/images/logo png.png"
 import { Link, useNavigate } from 'react-router-dom'
 import audio from "../../assets/HAPPY BIRTHDAY TO YOU The Happy Birthday Song.mp3"
 
@@ -32,8 +32,8 @@ const Navbar = () => {
     <div>
         <nav className="index-nav z-10">
             <Link to="/" className='cursor-pointer flex flex-col items-center justify-center'>
-                <img src={Logo} alt="" />
-                <p>Kraftea</p>
+                <img src={Logo} alt="" className='w-[40px]'/>
+                {/* <p>Kraftea</p> */}
             </Link>
             {/* <button onClick={() => playAudio()} className='text-white'>click</button> */}
             {/* {user && <p className='text-white'>Welcome, <span className='font-bold'>{user}</span> </p> } */}

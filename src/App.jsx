@@ -21,17 +21,17 @@ function App() {
   const [birthdayModal, setBirthdayModal] = useState(true)
   const [birthdayModalVideo, setBirthdayModalVideo] = useState(false)
 
-  function handleBirthdayModalClose(){
-    new 
-    setBirthdayModal(false)
-    setBirthdayModalVideo(true)
-  }
+  // function handleBirthdayModalClose(){
+  //   new 
+  //   setBirthdayModal(false)
+  //   setBirthdayModalVideo(true)
+  // }
   
-  function handleBirthdayModalVideoClose(){
-    new Audio(audio).play();
-    // new
-    setBirthdayModalVideo(false)
-  }
+  // function handleBirthdayModalVideoClose(){
+  //   new Audio(audio).play();
+  //   // new
+  //   setBirthdayModalVideo(false)
+  // }
 
   useEffect(() => {
     // localStorage.setItem("user", JSON.stringify("guest-user"))
@@ -40,7 +40,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-      {birthdayModal && 
+      {/* {birthdayModal && 
         <div className='birthdayModalBg'>
           <i className='ri-close-line text-white text-2xl fixed top-[20%] md:top-[3%] right-[20%] cursor-pointer' onClick={() => handleBirthdayModalClose()}></i>
           <img src={birthdayGif} alt="" className='birthdayGif'/>
@@ -51,7 +51,7 @@ function App() {
           <i className='ri-close-line text-white text-2xl fixed top-[20%] md:top-[3%] right-[20%] cursor-pointer' onClick={() => handleBirthdayModalVideoClose()}></i>
           <video src={video} width="200" height="150" controls></video>
         </div>
-      }
+      } */}
         <Routes>
           <Route path="/" element={<Home baseUrl={baseUrl} />}/>
           <Route path="/about-us" element={<AboutUs baseUrl={baseUrl} />}/>
