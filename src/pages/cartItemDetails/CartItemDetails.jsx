@@ -65,6 +65,7 @@ const CartItemDetails = ({baseUrl}) => {
         console.log(data)
         if(response) setLoader(false)
         if(response.ok){
+          localStorage.setItem("sessionId", JSON.stringify(data.session_id))
           navigate(`/myorder/${data.order_id}`)
         }
       }else{
@@ -82,6 +83,7 @@ const CartItemDetails = ({baseUrl}) => {
         console.log(data)
         if(response) setLoader(false)
         if(response.ok){
+          localStorage.setItem("sessionId", JSON.stringify(data.session_id))
           navigate(`/myorder/${data.order_id}`)
         }
       }

@@ -62,7 +62,7 @@ function App() {
           <Route path="/sign-in-sign-up" element={<SignInSignUp baseUrl={baseUrl}/>}/>
           <Route path="/cart-item-details" element={<CartItemDetails baseUrl={baseUrl}/>}/>
           <Route path="/order-details/:order_id" element={<OrderInfo baseUrl={baseUrl} />}/>
-          <Route path="/confirm-payment/:session_id" element={<ConfirmPayment baseUrl={baseUrl} />}/>
+          <Route path="/confirm-payment" element={<ConfirmPayment baseUrl={baseUrl} />}/>
           <Route path="/myorder/:order_id" element={<OrderAndShippingInfo baseUrl={baseUrl} />}/>
         </Routes>
         <Footer />
