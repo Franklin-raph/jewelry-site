@@ -96,9 +96,8 @@ const OrderAndShippingInfo = ({baseUrl}) => {
             const data = await response.json()
             if(response) setLoader(false)
             if(response.ok){
-                localStorage.removeItem("cartItems")
                 setMyorder(true)
-                setSuccess("Your order is being processed.")
+                window.location.href = data.payment_link
             }
             console.log(response, data)
         }
