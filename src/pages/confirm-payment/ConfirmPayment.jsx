@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react'
 import Navbar from '../../components/navbar/Navbar'
 import ErrorAlert from '../../components/alert/ErrorAlert'
+import SuccessAlert from '../../components/alert/SuccessAlert'
 
 const ConfirmPayment = ({baseUrl}) => {
 
@@ -21,10 +22,12 @@ const ConfirmPayment = ({baseUrl}) => {
         if(response) setIsLoading(false)
         if(!response.ok){
             setError(data.detail)
-            console.log(data.detail)
             setPaymentUrl(data.payment_url)
         }
-        console.log(response, data)
+        
+        if(response.ok){
+            setSuccess(data.detail)
+        }
     }
 
   return (
@@ -41,8 +44,13 @@ const ConfirmPayment = ({baseUrl}) => {
                     <h1 className='mb-4 font-bold text-center fixed' style={{ top:"40%", left:"50%", transform:"translate(-50%, -50%)" }}>Your payment is been confirmed, please wait</h1>
                 </>
             }
+
             {error &&
                 <ErrorAlert error={error} setError={setError} paymentUrl={paymentUrl}/>
+            }
+
+            {success &&
+                <SuccessAlert success={success} setSuccess={setSuccess}/>
             }
         </div>
     </div>

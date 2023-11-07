@@ -37,6 +37,12 @@ const SuccessAlert = ({ success, setSuccess, checkoutPurchase, myorder }) => {
               <button className="bg-red-500 ml-3 px-3 py-1 text-white" onClick={()=> setSuccess(false)} >No</button>
             </div>
           }
+
+          {location.pathname === "/cart-item-details" &&
+            <div>
+              <button className="bg-green-500 px-3 py-1 text-white" onClick={() => navigate("/")}>Ok</button>
+            </div>
+          }
           {myorder && 
             <>
               {user && <button className="bg-green-500 px-3 py-1 text-white" onClick={() => navigate("/dashboard")}>Ok</button>}
