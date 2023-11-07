@@ -38,9 +38,12 @@ const SuccessAlert = ({ success, setSuccess, checkoutPurchase, myorder }) => {
             </div>
           }
 
-          {location.pathname === "/cart-item-details" &&
+          {location.pathname === "/confirm-payment" &&
             <div>
-              <button className="bg-green-500 px-3 py-1 text-white" onClick={() => navigate("/")}>Ok</button>
+              <button className="bg-green-500 px-3 py-1 text-white" onClick={() => {
+                localStorage.removeItem("cartItems")
+                navigate("/")
+                }}>Ok</button>
             </div>
           }
           {myorder && 
