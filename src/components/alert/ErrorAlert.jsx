@@ -38,8 +38,8 @@ const ErrorAlert = ({ error, setError, paymentUrl }) => {
           <p style={{ color: "black" }}>{error}</p>
           {location.pathname === "/confirm-payment" && 
             <div className='flex items-center gap-5'>
-              <button onClick={() => makepayment()}>Ok</button>
-              <button onClick={() => cancelPayment()}>Cancel Payment</button>
+              <button className="bg-green-500 px-3 py-1 text-white" onClick={() => makepayment()}>Continue with Payment</button>
+              <button className="bg-red-500 ml-3 px-3 py-1 text-white" onClick={() => cancelPayment()}>Cancel Payment</button>
             </div>
           }
         </div>
