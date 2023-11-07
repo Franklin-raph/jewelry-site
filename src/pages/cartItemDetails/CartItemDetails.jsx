@@ -65,8 +65,7 @@ const CartItemDetails = ({baseUrl}) => {
         console.log(data)
         if(response) setLoader(false)
         if(response.ok){
-          // navigate(`/myorder/${data.order_id}`)
-          window.location.href = data.payment_link
+          navigate(`/myorder/${data.order_id}`)
         }
       }else{
         console.log("usercart")
@@ -83,8 +82,7 @@ const CartItemDetails = ({baseUrl}) => {
         console.log(data)
         if(response) setLoader(false)
         if(response.ok){
-          // navigate(`/myorder/${data.order_id}`)
-          window.location.href = data.payment_link
+          navigate(`/myorder/${data.order_id}`)
         }
       }
     }

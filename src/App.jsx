@@ -14,6 +14,7 @@ import audio from "./assets/HAPPY BIRTHDAY TO YOU The Happy Birthday Song.mp3"
 import video from "./assets/WhatsApp Video 2023-10-27 at 10.34.44 AM.mp4"
 import birthdayGif from "./assets/images/giphy.gif"
 import Home from './pages/homePage/Home'
+import ConfirmPayment from './pages/confirm-payment/ConfirmPayment'
 
 function App() {
 
@@ -61,6 +62,7 @@ function App() {
           <Route path="/sign-in-sign-up" element={<SignInSignUp baseUrl={baseUrl}/>}/>
           <Route path="/cart-item-details" element={<CartItemDetails baseUrl={baseUrl}/>}/>
           <Route path="/order-details/:order_id" element={<OrderInfo baseUrl={baseUrl} />}/>
+          <Route path="/confirm-payment/:session_id" element={<ConfirmPayment baseUrl={baseUrl} />}/>
           <Route path="/myorder/:order_id" element={<OrderAndShippingInfo baseUrl={baseUrl} />}/>
         </Routes>
         <Footer />

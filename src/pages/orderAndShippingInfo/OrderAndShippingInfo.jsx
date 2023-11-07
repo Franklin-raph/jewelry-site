@@ -69,9 +69,10 @@ const OrderAndShippingInfo = ({baseUrl}) => {
             const data = await response.json()
             if(response) setLoader(false)
             if(response.ok){
-                localStorage.removeItem("cartItems")
+                // localStorage.removeItem("cartItems")
                 setMyorder(true)
-                setSuccess("Your order is being processed.")
+                // setSuccess("Your order is being processed.")
+                window.location.href = data.payment_link
             }
             console.log(response, data)
         }
@@ -156,7 +157,7 @@ const OrderAndShippingInfo = ({baseUrl}) => {
                 }
             </div>
             {user && <button onClick={purchaseItem} className='bg-black text-white px-3 py-1'>Confirm Purchase</button> }
-            {!user && <button onClick={guestPurchaseItem} className='bg-black text-white px-3 py-1'>Confirm Purchase...</button> }
+            {!user && <button onClick={guestPurchaseItem} className='bg-black text-white px-3 py-1'>Confirm Purchase</button> }
             {error && <ErrorAlert error={error} setError={setError}/> }
             {success && <SuccessAlert success={success} setSuccess={setSuccess} myorder={myorder}/> }
             {loader && <Loader />}
