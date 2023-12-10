@@ -14,18 +14,19 @@ const CartItemDetails = ({baseUrl}) => {
     const [loader, setLoader] = useState(false)
     const [discountModal, setDiscountModal] = useState(false)
     const navigate = useNavigate()
+    // const [newCartItems, setNewCartItems] = useState(JSON.parse(localStorage.getItem("cartItems")))
 
     
     const transformArray = () => {
         const itemMap = new Map();
 
       cartItems.forEach(obj => {
-      const { id, item, image, name, price } = obj;
+      const { id, item, image, name, price, category, description, status } = obj;
   
       if (itemMap.has(id)) {
         itemMap.set(id, { ...itemMap.get(id), qty: itemMap.get(id).qty + 1 });
       } else {
-        itemMap.set(id, { id, image, price, name, qty: 1 });
+        itemMap.set(id, { id, image, price, category, description, status, name, qty: 1 });
       }
     });
   
@@ -33,14 +34,15 @@ const CartItemDetails = ({baseUrl}) => {
     return Array.from(itemMap.values());
     }
 
-    const transformedArray = transformArray(cartItems);
-    console.log(transformedArray);
+    let transformedArray = transformArray(cartItems);
 
     useEffect(() => {
         setTotal(cartItems.reduce((total, obj) => {
             return total + Number(obj.price);
           }, 0))
           setTimeout(() => {setDiscountModal(true)},2000)
+
+          localStorage.setItem("newTransformedArray", JSON.stringify(transformArray(cartItems)))
     },[])
 
     function confirmCheckout(){
@@ -48,9 +50,9 @@ const CartItemDetails = ({baseUrl}) => {
       setItemsArray(transformArray)
     }
 
-    console.log(itemsArray)
 
     async function checkoutPurchase(){
+      console.log("data sent to the backend ==> ", itemsArray)
       if(!user){
         console.log("Guest cart")
         setLoader(true)
@@ -70,6 +72,7 @@ const CartItemDetails = ({baseUrl}) => {
         }
       }else{
         console.log("usercart")
+        console.log("data sent to the backend ==> ", itemsArray)
         setLoader(true)
         const response = await fetch(`${baseUrl}/add-to-cart/`,{
           method:"POST",
@@ -113,6 +116,10 @@ const CartItemDetails = ({baseUrl}) => {
                           <div>
                               <p>X{cartItem.qty}</p>
                               <p>${Number(cartItem.price) * cartItem.qty}</p>
+                          <div className='flex items-center justify-between gap-10'>
+                            <button className='cursor-pointer text-2xl text-gray-600' onClick={() => decrementCart(`${cartItem.id}`)} >-</button>
+                            <button className='cursor-pointer text-2xl text text-gray-600' onClick={() => incrementCart(`${cartItem.id}`)}>+</button>
+                          </div>
                           </div>
                       </div>
                   </div>
