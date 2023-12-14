@@ -9,6 +9,7 @@ const Navbar = () => {
     const [toggleNavDropDown, setToggleNavDropDown] = useState(false)
     const navigate = useNavigate()
     const cartItems = JSON.parse(localStorage.getItem("cartItems")) || []
+    const carts = JSON.parse(localStorage.getItem("cart")) || []
 
     // useEffect(() => {
     //     console.log(cartItems)
@@ -28,6 +29,23 @@ const Navbar = () => {
     //     new Audio(audio).play();
     //   }
 
+    async function sendCartItemsToBE(){
+        console.log(JSON.stringify(cartItems))
+        const response = await fetch(`https://krafteabe.pythonanywhere.com/api/v1/modify-cart/`,{
+            method:"POST",
+            body: JSON.stringify(cartItems),
+            headers:{
+                "Content-Type":"application/json"
+            }
+        })
+        const data = await response.json()
+        if(response.ok){
+            localStorage.setItem("cart", JSON.stringify(data))
+            navigate(`/cart-item-details`)
+        }
+        console.log(response, data)
+    } 
+
   return (
     <div>
         <nav className="index-nav z-10">
@@ -43,9 +61,9 @@ const Navbar = () => {
             </div>
             <ul className="nav-links">
                 {cartItems.length &&
-                    <div onClick={() => navigate(`/cart-item-details`)} className='rounded-full relative cursor-pointer'>
+                    <div onClick={sendCartItemsToBE} className='rounded-full relative cursor-pointer'>
                         <i class="ri-shopping-cart-2-line text-2xl text-white"></i>
-                        <p className='absolute top-[-10px] right-[-13px] text-black rounded-full bg-white' style={{ padding:"2px 4px" }}>{cartItems.length}</p>
+                        <p className='absolute top-[-10px] right-[-13px] text-black rounded-full bg-white' style={{ padding:"2px 4px" }}>{carts.cart_count}</p>
                     </div>
                 }
                 {user ? 
