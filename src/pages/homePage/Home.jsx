@@ -20,6 +20,7 @@ const Home = ({baseUrl}) => {
     const [currentCategory, setCurrentCategory] = useState("All")
     const [jewelriesCategories, setJewelriesCategories] = useState([])
     const [error, setError] = useState(false)
+    const [cartNumber, setCartNumber] = useState(0)
     const [jewelries, setJewelries] = useState([
         {
             id:"1",
@@ -73,6 +74,7 @@ const Home = ({baseUrl}) => {
     useEffect(() => {
         getProducts()
         getCategory()
+        setCartNumber(JSON.parse(localStorage.getItem("cartNumber")) || 0)
     },[])
 
     const options = {
@@ -114,6 +116,9 @@ const Home = ({baseUrl}) => {
     const cartItemsArray = JSON.parse(localStorage.getItem("cartItems")) || []
 
     function addItemToCart(id){
+        setCartNumber((cartNumber) => cartNumber + 1)
+        localStorage.setItem("cartNumber", JSON.stringify(cartNumber + 1))
+        console.log(cartNumber);
         // if(!user){
             // setError("Please login before adding item to cart")
         // }else{
@@ -150,7 +155,7 @@ const Home = ({baseUrl}) => {
 
   return (
     <div>
-        <Navbar cartTotals={cartTotals}/>
+        <Navbar cartTotals={cartTotals} cartNumber={cartNumber}/>
         <main>
             <div>
                 <h1>Kraftea designs</h1>

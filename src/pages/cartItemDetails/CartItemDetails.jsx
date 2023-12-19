@@ -13,37 +13,21 @@ const CartItemDetails = ({baseUrl}) => {
     const [success, setSuccess] = useState(false)
     const [loader, setLoader] = useState(false)
     const [discountModal, setDiscountModal] = useState(false)
+    const [cartNumber, setCartNumber] = useState()
     const navigate = useNavigate()
 
     const [cartItemsFromServer, setCartItemsFromServer] = useState([])
 
     useEffect(() => {
       setCartItemsFromServer(cartItems.cart_items)
+      setCartNumber(JSON.parse(localStorage.getItem("cartNumber")))
     },[])
     console.log(cartItemsFromServer)
-    // const [newCartItems, setNewCartItems] = useState(JSON.parse(localStorage.getItem("cartItems")))
-
-    
-    // const transformArray = () => {
-    //     const itemMap = new Map();
-
-    //   cartItems.forEach(obj => {
-    //   const { id, item, image, name, price, category, description, status } = obj;
-  
-    //   if (itemMap.has(id)) {
-    //     itemMap.set(id, { ...itemMap.get(id), qty: itemMap.get(id).qty + 1 });
-    //   } else {
-    //     itemMap.set(id, { id, image, price, category, description, status, name, qty: 1 });
-    //   }
-    // });
-  
-    // // setItemsArray(cartItems)
-    // return Array.from(itemMap.values());
-    // }
-
-    // let transformedArray = transformArray(cartItems);
 
     async function incrementCart(id){
+      setCartNumber((cartNumber) => cartNumber + 1)
+      localStorage.setItem("cartNumber", JSON.stringify(cartNumber + 1))
+
       console.log(id, JSON.stringify(cartItems.cart_items));
       const response = await fetch(`${baseUrl}/add_remove_item/?action=add&&id=${id}`,{
         method:"PUT",
@@ -60,6 +44,9 @@ const CartItemDetails = ({baseUrl}) => {
     }
 
     async function decrementCart(id){
+      setCartNumber((cartNumber) => cartNumber - 1)
+      localStorage.setItem("cartNumber", JSON.stringify(cartNumber - 1))
+
       console.log(id, JSON.stringify(cartItems.cart_items));
       const response = await fetch(`${baseUrl}/add_remove_item/?action=subtract&&id=${id}`,{
         method:"PUT",
@@ -77,7 +64,8 @@ const CartItemDetails = ({baseUrl}) => {
 
     function confirmCheckout(){
       setSuccess("Are you sure you want to continue with this purchase?")
-      setItemsArray(transformArray)
+      console.log(cartItemsFromServer);
+      setItemsArray(cartItemsFromServer)
     }
 
 
@@ -125,12 +113,19 @@ const CartItemDetails = ({baseUrl}) => {
 
   return (
     <div>
-      <Navbar />
+      <Navbar cartNumber={cartNumber}/>
       <div className='pt-[7rem] lg:px-12 px-6 pb-[10rem]' id='mobileSpace'>
           <div className='flex items-center justify-between pb-2' style={{ borderBottom:"1px solid #333" }}>
               <h1 className='font-bold'>My Cart</h1>
               <div className="flex items-center">
-                  <p className='mr-5'>Total: ${total}</p>
+                  <p className='mr-5'>Total: 
+                    {
+                      new Intl.NumberFormat('en-US', {
+                        style: 'currency',
+                        currency: 'USD'
+                      }).format(Number(cartItems && cartItems.total_price))
+                    }
+                  </p>
                   <button className='py-1 px-2 bg-black text-white' onClick={confirmCheckout}>Checkout</button>
               </div>
           </div>
@@ -140,12 +135,26 @@ const CartItemDetails = ({baseUrl}) => {
                       <img src={cartItem.image} alt="" className='w-[50px] mr-[1rem]'/>
                       <div className='flex justify-between w-full g-10'>
                           <div>
-                              <p>${cartItem.price}</p>
+                              <p>
+                                {
+                                  new Intl.NumberFormat('en-US', {
+                                    style: 'currency',
+                                    currency: 'USD'
+                                  }).format(Number(cartItem.price))
+                                }
+                              </p>
                               <p className='text-sm'>{cartItem.name}</p>
                           </div>
                           <div>
                               <p>X{cartItem.quantity}</p>
-                              <p>${cartItem.sub_total}</p>
+                              <p>
+                              {
+                                new Intl.NumberFormat('en-US', {
+                                  style: 'currency',
+                                  currency: 'USD'
+                                }).format(Number(cartItem.price) * cartItem.quantity )
+                              }
+                              </p>
                           <div className='flex items-center justify-between gap-10'>
                             <button className='cursor-pointer text-2xl text-gray-600' onClick={() => decrementCart(`${cartItem.id}`)} >-</button>
                             <button className='cursor-pointer text-2xl text text-gray-600' onClick={() => incrementCart(`${cartItem.id}`)}>+</button>

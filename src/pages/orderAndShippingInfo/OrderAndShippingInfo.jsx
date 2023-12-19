@@ -16,11 +16,13 @@ const OrderAndShippingInfo = ({baseUrl}) => {
     const [shippingAddress, setShippingAddress] = useState("")
     const [email, setEmail] = useState("")
     const [myorder, setMyorder] = useState(false)
+    const [cartNumber, setCartNumber] = useState()
     const navigate = useNavigate()
     console.log(order_id)
 
     useEffect(() =>{
         getMyOrder()
+        setCartNumber(JSON.parse(localStorage.getItem("cartNumber")))
     },[])
 
     async function getMyOrder(){
@@ -105,7 +107,7 @@ const OrderAndShippingInfo = ({baseUrl}) => {
 
   return (
     <div>
-        <Navbar />
+        <Navbar cartNumber={cartNumber}/>
         <div className='pt-[5rem] px-12 pb-[5rem] mb-[5rem]'>
             <h1 className='mb-4 font-bold'>My Order Summary</h1>
             <table class="table-auto w-full">
@@ -122,14 +124,28 @@ const OrderAndShippingInfo = ({baseUrl}) => {
                     <tr>
                         <td className='pt-4'>{item.product_name}</td>
                         <td className='pt-4 text-end'>{item.quantity}</td>
-                        <td className='pt-4 text-end'>${item.subtotal}</td>
+                        <td className='pt-4 text-end'>
+                        {
+                        new Intl.NumberFormat('en-US', {
+                            style: 'currency',
+                            currency: 'USD'
+                        }).format(Number(item.subtotal))
+                        }
+                        </td>
                     </tr>
                 ))}
                 </tbody>
             </table>
             <div className='flex items-center justify-between mt-4 border-[#d3d3d3] border-t-2'>
                 <h1 className='font-bold'>Total</h1>
-                <h1 className='font-bold'>${total}</h1>
+                <h1 className='font-bold'>
+                    {
+                    new Intl.NumberFormat('en-US', {
+                        style: 'currency',
+                        currency: 'USD'
+                    }).format(total)
+                    }
+                </h1>
             </div>
             <div>
                 <div className='flex items-center gap-3 my-4 justify-between'>

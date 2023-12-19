@@ -3,7 +3,7 @@ import Logo from "../../assets/images/logo png.png"
 import { Link, useNavigate } from 'react-router-dom'
 import audio from "../../assets/HAPPY BIRTHDAY TO YOU The Happy Birthday Song.mp3"
 
-const Navbar = () => {
+const Navbar = ({cartNumber}) => {
 
     const user = JSON.parse(localStorage.getItem("user"))
     const [toggleNavDropDown, setToggleNavDropDown] = useState(false)
@@ -50,7 +50,7 @@ const Navbar = () => {
     <div>
         <nav className="index-nav z-10">
             <Link to="/" className='cursor-pointer flex flex-col items-center justify-center'>
-                <img src={Logo} alt="" className='w-[40px]'/>
+                <img src={Logo} alt="" className='w-[63px]'/>
                 {/* <p>Kraftea</p> */}
             </Link>
             {/* <button onClick={() => playAudio()} className='text-white'>click</button> */}
@@ -63,7 +63,9 @@ const Navbar = () => {
                 {cartItems.length &&
                     <div onClick={sendCartItemsToBE} className='rounded-full relative cursor-pointer'>
                         <i class="ri-shopping-cart-2-line text-2xl text-white"></i>
-                        <p className='absolute top-[-10px] right-[-13px] text-black rounded-full bg-white' style={{ padding:"2px 4px" }}>{carts.cart_count}</p>
+                        <p className='absolute top-[-10px] right-[-13px] text-black rounded-full bg-white' style={{ padding:"2px 4px" }}>{cartNumber}</p>
+                        {/* <p className='absolute top-[-10px] right-[-13px] text-black rounded-full bg-white' style={{ padding:"2px 4px" }}>{cartItems.length}</p> */}
+                        
                     </div>
                 }
                 {user ? 
